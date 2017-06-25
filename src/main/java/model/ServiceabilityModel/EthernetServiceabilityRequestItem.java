@@ -3,8 +3,6 @@ package model.ServiceabilityModel;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import javax.json.Json;
-
 public class EthernetServiceabilityRequestItem {
     private String bandwidth;
     private String maxPortSpeed;
@@ -19,11 +17,12 @@ public class EthernetServiceabilityRequestItem {
     private boolean newEnniRequired;
     private String buyerEnniId;
     private ServiceSite serviceSite;
+    private int price;
     public EthernetServiceabilityRequestItem(){
     }
     public EthernetServiceabilityRequestItem(String bandwidth, String maxPortSpeed, Address address, Enums.AccessMedium accessMedium
             , Enums.ClassOfService classOfService, Enums.ProductCategory productCategory
-            , Enums.ProductType productType, int pricingTerm, String date, Enums.InterfaceType interfaceType, boolean newEnniRequired, String buyerEnniId, ServiceSite serviceSite){
+            , Enums.ProductType productType, int pricingTerm, String date, Enums.InterfaceType interfaceType, boolean newEnniRequired, String buyerEnniId, ServiceSite serviceSite, int price){
         this.bandwidth = bandwidth;
         this.maxPortSpeed = maxPortSpeed;
         //this.address = address;
@@ -37,6 +36,7 @@ public class EthernetServiceabilityRequestItem {
         this.newEnniRequired = newEnniRequired;
         this.buyerEnniId = buyerEnniId;
         this.serviceSite = serviceSite;
+        this.price = price;
     }
     public String getBandwidth() {
         return bandwidth;
@@ -169,5 +169,13 @@ public class EthernetServiceabilityRequestItem {
 
     public void setServiceSite(ServiceSite serviceSite) {
         this.serviceSite = serviceSite;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

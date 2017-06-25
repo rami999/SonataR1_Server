@@ -66,7 +66,7 @@ public class ServiceQualification {
         serviceabilityRequest.setServiceRequestStatus(Enums.ServiceabilityRequestStatus.COMPLETED);
         addServiceabilityRequestToDB(serviceabilityRequest);
         addServiceabilityResponseToDB(serviceabilityResponse);
-        return Response.status(statusCode).entity(result).header("responseId",serviceabilityResponse.getServiceabilityResponseId()).build();
+        return Response.status(statusCode).entity(result).header("price",serviceabilityRequest.getEthernetServiceabilityRequestItem().getPrice()).header("responseId",serviceabilityResponse.getServiceabilityResponseId()).build();
 
     }
     private Address jsonToAddress(String data) throws JSONException {
@@ -84,7 +84,7 @@ public class ServiceQualification {
         Connection connection=connectToDB();
         Statement stresult = connection.createStatement();
         ResultSet location = stresult.executeQuery(
-                "SELECT ItemId FROM serviceability.ethernetserviceabilityrequestitems" +
+                "SELECT ItemId,price FROM serviceability.ethernetserviceabilityrequestitems" +
                         " WHERE latitude='"+serviceabilityRequest.getEthernetServiceabilityRequestItem().getServiceSite().getAddress().getGeoCode().getLatitude()+"'"
                         + "AND longitude='"+serviceabilityRequest.getEthernetServiceabilityRequestItem().getServiceSite().getAddress().getGeoCode().getLongitude()+"'"
                         +"AND bandwidth='"+serviceabilityRequest.getEthernetServiceabilityRequestItem().getBandwidth()+"'"
@@ -100,6 +100,8 @@ public class ServiceQualification {
         if(isvalid){
             int ItemId=location.getInt("ItemId");
             serviceabilityRequest.setItemId(ItemId);
+            int price=location.getInt("price");
+            serviceabilityRequest.getEthernetServiceabilityRequestItem().setPrice(price);
             serviceabilityRequest.getServiceabilityResponse().setItemId(ItemId);
         }
         location.close();
