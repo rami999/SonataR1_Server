@@ -18,6 +18,7 @@ public class EthernetServiceabilityRequestItem {
     private String buyerEnniId;
     private ServiceSite serviceSite;
     private int price;
+    //wow
     public EthernetServiceabilityRequestItem(){
     }
     public EthernetServiceabilityRequestItem(String bandwidth, String maxPortSpeed, Address address, Enums.AccessMedium accessMedium
