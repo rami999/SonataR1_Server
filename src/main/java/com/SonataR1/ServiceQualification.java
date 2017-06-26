@@ -14,14 +14,6 @@ import java.text.ParseException;
 public class ServiceQualification {
     private String responseId;
 
-    @Path("/rami")
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public Response getMessage(@QueryParam("geoCode.i") String i,@QueryParam("geoCode.j") String j) {
-        Address address=new Address(new GeoCode(i,j));
-     return Response.status(Response.Status.OK).entity("GeoCode at: lat="+i+" long="+j).build();
-    }
-
     @Path("/validate")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
