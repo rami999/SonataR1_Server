@@ -57,7 +57,6 @@ public class ServiceQualification {
         serviceabilityResponse.setServiceabilityResponseStatus(Enums.ServiceabilityResponseStatus.COMPLETED);
         serviceabilityRequest.setServiceRequestStatus(Enums.ServiceabilityRequestStatus.COMPLETED);
         addServiceabilityRequestToDB(serviceabilityRequest);
-        //wow
         addServiceabilityResponseToDB(serviceabilityResponse);
         return Response.status(statusCode).entity(result).header("price",serviceabilityRequest.getEthernetServiceabilityRequestItem().getPrice()).header("responseId",serviceabilityResponse.getServiceabilityResponseId()).build();
 
