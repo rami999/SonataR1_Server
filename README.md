@@ -18,7 +18,7 @@ We used mysql schemas and databases for fake informations.
 for example, when validating an address we checked in the GeoCode table.
 In the ConnectToDB() method in ServiceQualifation class, you can change the information of the connection as you wish.
 
-
+We added the *.sql files under the tables.rar file so you can see the model of our tables.  
 
 
 
