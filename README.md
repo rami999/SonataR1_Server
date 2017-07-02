@@ -9,7 +9,7 @@ Our implementation handles http requests that being sent from the Client Side fo
 
 #Server:  
 We deployed our project on the Apache Tomcat 8.5.15.
-To run the server, download the JAR/WAR and from the bin directory in the apache-tomcat-8.5.15 folder, do the following:
+To run the server, download the JAR/WAR and from the bin directory in the apache-tomcat-8.5.15 folder, do the following:  
 1)set CATALINA_BASE=path-to-JAR/WAR.  
 2)run catalina/bat start.
 
